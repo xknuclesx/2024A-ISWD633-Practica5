@@ -22,7 +22,7 @@ services:
 
   wordpress-service:
     image: wordpress:6
-    container_name: wordpress-
+    container_name: wordpress-container
     ports:
       - <valor>:<valor>
     environment:
