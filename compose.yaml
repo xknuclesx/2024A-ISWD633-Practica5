@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  mysql-service:
+    image: mysql:8
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: <valor>
+      MYSQL_DATABASE: <valor>
+      MYSQL_USER: <valor>
+      MYSQL_PASSWORD: <valor>
+    volumes:
+      - mysql-vol:/var/lib/mysql
+    networks:
+      - net-wp
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: <valor>
+      timeout: <valor>
+      retries: <valor>
+      start_period: <valor>
+
+  wordpress-service:
+    image: wordpress:6
+    container_name: wordpress-
+    ports:
+      - <valor>:<valor>
+    environment:
+      WORDPRESS_DB_HOST: mysql-service
+      WORDPRESS_DB_USER: <valor>
+      WORDPRESS_DB_PASSWORD: <valor>
+      WORDPRESS_DB_NAME: <valor>
+    volumes:
+      - wordpress-vol:/var/www/html
+    networks:
+      - net-wp
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: <valor>
+      timeout: <valor>
+      retries: <valor>
+      start_period: <valor>
+    restart: <valor>
+    depends_on:
+      mysql-service:
+        condition: <valor>
+
+# Esta clave define los volúmenes que se utilizarán en los servicios de tu aplicación.
+volumes:
+  mysql-vol:
+  wordpress-vol:
+# Esta clave define las redes que se utilizarán en los servicios de tu aplicación.
+networks:
+  net-wp:
+    driver: bridge
