@@ -3,7 +3,7 @@ Es una herramienta que permite definir y gestionar aplicaciones Docker multi-con
 
 Docker Compose simplifica el proceso de definir la estructura de una aplicación con múltiples servicios y sus interacciones, lo que facilita el desarrollo, la prueba y el despliegue de aplicaciones complejas.
 
-Un archivo YAML (YAML Ain't Markup Language) se forma utilizando una estructura de datos basada en texto. Reglas Básicas de Sintaxis
+Un archivo YAML (YAML Ain't Markup Language) se forma utilizando una estructura de datos basada en texto. Para el archivo considerar:
 ## Indentación
 YAML usa espacios para la indentación, no tabuladores.
 La indentación indica jerarquía. Asegúrate de usar el mismo número de espacios para cada nivel de indentación.
@@ -13,7 +13,7 @@ Las claves y valores se separan por dos puntos seguidos de un espacio (:).
 ## Ejercicio
 El archivo compose.yaml permitirá configurar dos servicios de acuerdo con el siguiente esquema:
 
-![Ejercicio docker compose](ejercicio-docker-compose.PNG)
+![Ejercicio docker compose](imagenes/ejercicio-docker-compose.PNG)
 
 ### Revise el archivo archivo compose.yaml y complete solamente las partes que solicitan <valor>, para eso considerar:
 - La clave **services** define los servicios (contenedores) que conforman tu aplicación. Cada servicio se describe con un nombre único y contiene configuraciones específicas como la imagen de Docker que debe usar, los volúmenes, las redes, las variables de entorno, y más. Para el ejercicio es necesario definir dos servicios: mysql-service y wordpress-service.
@@ -26,6 +26,7 @@ El archivo compose.yaml permitirá configurar dos servicios de acuerdo con el si
   - depends_on: Establece dependencias entre servicios. El servicio actual **wordpress-service** depende del servicio **mysql-service**. Podemos usar los nombres directamente ya que ambos contenedores pertenecen a la red de tipo bridge.
   - condition: service_healthy significa que el servicio actual solo se iniciará después de que el servicio mysql-service esté en un estado saludable, es decir, después de que pase su healthcheck.
 - Línea 43 es necesario que el wordpress-container se encuentre disponible en todo momento, defina una política de reinicio adecuada para esto
+- wordpress-vol y mysql-vol son volúmenes nombrados.
 
 ### Ejecutar Docker compose
 Este comando descargará las imágenes necesarias, creará y ejecutará los contenedores según lo definido en el archivo compose.yaml
@@ -44,6 +45,7 @@ docker compose up -d <nombre servicio>
 ```
 docker compose ps
 ```
+### COMPLETAR CON UNA CAPTURA DE PANTALLA DEL LISTADO DE LOS CONTENEDORES EN EJECUCIÓN
 
 ### Detener y eliminar los contenedores definidos en el archivo
 ```
