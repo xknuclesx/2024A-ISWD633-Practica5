@@ -34,7 +34,6 @@ Para ejecutar en modo "detached" (en segundo plano) se agrega la opción -d:
 ```
 docker compose up -d
 ```
-### Ejecute el comando anterior 
 
 ### Ejecutar Docker compose para servicios que no se crearon correctamente
 Si algún servicio no se creó correctamente se puede usar
@@ -46,6 +45,7 @@ docker compose up -d <nombre servicio>
 ```
 docker compose ps
 ```
+### COMPLETAR CON UNA CAPTURA DE PANTALLA DEL LISTADO DE LOS CONTENEDORES EN EJECUCIÓN
 
 ### Detener y eliminar los contenedores definidos en el archivo
 ```
