@@ -43,7 +43,7 @@ services:
     restart: <valor>
     depends_on:
       mysql-service:
-        condition: <valor>
+        condition: service_healthy
 
 # Esta clave define los volúmenes que se utilizarán en los servicios de tu aplicación.
 volumes:
