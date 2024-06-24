@@ -1,5 +1,5 @@
 # Ejercicio
-Configurar SonarQube utilizando Docker Compose, para esto necesitas dos servicios
+Configurar SonarQube utilizando Docker Compose, para esto necesitas dos servicios:
 - Servicio: SonarQube
 - Desde el host es necesario acceder a SonarQube por lo que necesitas mapear el puerto correspondiente.
 - Servicio: PostgreSQL (existen otras opciones: Microsoft SQL Server, Oracle)
